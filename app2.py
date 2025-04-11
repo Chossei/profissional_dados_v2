@@ -42,7 +42,7 @@ def ajustar_ordem(variavel):
         ordem = ['Parda', 'Branca', 'Preta', 'Amarela', 'Indígena', 'Outra', 'Não informado']
     elif variavel == 'Carreira':
         ordem = ['Júnior', 'Pleno', 'Sênior']
-  return ordem
+    return ordem
 
 
 def desc_ic(variavel, base):
