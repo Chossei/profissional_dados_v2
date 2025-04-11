@@ -188,14 +188,14 @@ def hipoteses(variavel, categoria1, categoria2, base):
         texto_final2 = f'''<div style="padding: 1.5rem; background-color: #f9f9f9; border-radius: 10px; border: 1px solid #ddd; font-size: 16px;">
 <strong>H₀:</strong> μ<sub>{categoria1}</sub> = μ<sub>{categoria2}</sub><br>
 <strong>H₁:</strong> μ<sub>{categoria1}</sub> ≠ μ<sub>{categoria2}</sub><br><br>
-Como o p-valor é <i> < 0.0001 </i>, <strong>muito pequeno</strong>, 
+Como o p-valor é <i> < 0.0001 </i>, <strong>muito pequeno</strong>, com um nível de significância de 0.05, 
 há evidências estatísticas suficientes para <strong>rejeitar H₀</strong> e afirmar que as médias salariais são diferentes.
 </div>'''
     elif p_value > 0.0001 and p_value < 0.05:
         texto_final2 = f'''<div style="padding: 1.5rem; background-color: #f9f9f9; border-radius: 10px; border: 1px solid #ddd; font-size: 16px;">
 <strong>H₀:</strong> μ<sub>{categoria1}</sub> = μ<sub>{categoria2}</sub><br>
 <strong>H₁:</strong> μ<sub>{categoria1}</sub> ≠ μ<sub>{categoria2}</sub><br><br>
-Como o p-valor é <i>{p_value:.4f}</i>, <strong>menor que 0.05</strong>, 
+Como o p-valor é <i>{p_value:.4f}</i>, <strong>menor que o nível de significância 0.05,</strong>, 
 há evidências estatísticas suficientes para <strong>rejeitar H₀</strong> e afirmar que as médias salariais são diferentes.
 </div>
 ''' 
@@ -203,7 +203,7 @@ há evidências estatísticas suficientes para <strong>rejeitar H₀</strong> e 
         texto_final2 = f'''<div style="padding: 1.5rem; background-color: #f9f9f9; border-radius: 10px; border: 1px solid #ddd; font-size: 16px;">
 <strong>H₀:</strong> μ<sub>{categoria1}</sub> = μ<sub>{categoria2}</sub><br>
 <strong>H₁:</strong> μ<sub>{categoria1}</sub> ≠ μ<sub>{categoria2}</sub><br><br>
-Como o p-valor é <i>{p_value:.4f}</i>, <strong>maior que 0.05</strong>, 
+Como o p-valor é <i>{p_value:.4f}</i>, <strong>maior que o nível de significância 0.05</strong>, 
 há evidências estatísticas suficientes para <strong>não rejeitar H₀</strong> e afirmar que as médias salariais são iguais.
 </div>
 '''
@@ -299,7 +299,7 @@ st.divider()
 col1, col2 = st.columns(2, border = False)
 
 with col1:
-    st.subheader('🌊 Kernel') 
+    st.subheader('🌊 Distribuições estimadas das observações') 
     fig = grafico_density(variavel, base)
     st.pyplot(fig)
 
