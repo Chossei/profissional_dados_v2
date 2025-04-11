@@ -165,33 +165,26 @@ def graf_ic(variavel, base):
 
 
 def boxplot(variavel, base):
-    import matplotlib.colors as mcolors
 
     ordem = ajustar_ordem(variavel)
-    base[variavel] = pd.Categorical(base[variavel], categories=ordem, ordered=True)
+
+    base[variavel] = pd.Categorical(base[variavel], categories = ordem, ordered = True)
 
     # cria uma paleta com o mesmo número de cores das categorias
     paleta = sns.color_palette(n_colors=len(ordem))
-    cores_dict = dict(zip(ordem, paleta))
 
+    # mapeia as cores para cada categoria da variável
+    cores_dict = dict(zip(ordem, paleta))
+    
     # Criando a figura
     fig, ax = plt.subplots(figsize=(10, 6))
-
+    
     # Criando o boxplot
-    box = sns.boxplot(
+    sns.boxplot(
         x=variavel, y='Salario', data=base, showmeans=True, palette=cores_dict,
         meanprops={'marker': 'D', 'markerfacecolor': 'red', 'markeredgecolor': 'black', 'markersize': 7},
         ax=ax
     )
-
-    # Ajeitando as caixas para contorno escuro e interior transparente
-    for patch, categoria in zip(ax.artists, ordem):
-        facecolor = mcolors.to_rgba(cores_dict[categoria], alpha=0.25)  # cor clara dentro
-        edgecolor = cores_dict[categoria]  # contorno mais forte
-
-        patch.set_facecolor(facecolor)
-        patch.set_edgecolor(edgecolor)
-        patch.set_linewidth(2)
 
     # Ajustes visuais
     ax.set_xlabel(variavel, fontsize=10)
@@ -199,7 +192,8 @@ def boxplot(variavel, base):
     ax.set_title(f'Salário por {variavel}', fontsize=12)
     ax.tick_params(axis='x', labelsize=8)
     ax.tick_params(axis='y', labelsize=8)
-
+    
+    # Retornando a figura
     return fig
 
 
