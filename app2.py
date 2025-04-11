@@ -135,6 +135,10 @@ def grafico_density(variavel, base):
 def graf_ic(variavel, base):
     # Criando a tabela
     tabela = desc_ic(variavel, base)
+
+    
+    # Reordena a tabela pela ordem das categorias do índice
+    tabela = tabela.sort_index()
     
     # Supondo que o índice do DataFrame sejam as categorias
     categorias = tabela.index
