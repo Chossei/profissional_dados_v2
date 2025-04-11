@@ -170,12 +170,18 @@ def boxplot(variavel, base):
 
     base[variavel] = pd.Categorical(base[variavel], categories = ordem, ordered = True)
 
+    # cria uma paleta com o mesmo número de cores das categorias
+    paleta = sns.color_palette(n_colors=len(ordem))
+
+    # mapeia as cores para cada categoria da variável
+    cores_dict = dict(zip(ordem, paleta))
+    
     # Criando a figura
     fig, ax = plt.subplots(figsize=(10, 6))
     
     # Criando o boxplot
     sns.boxplot(
-        x=variavel, y='Salario', data=base, showmeans=True, palette="coolwarm",
+        x=variavel, y='Salario', data=base, showmeans=True, palette=cores_dict,
         meanprops={'marker': 'D', 'markerfacecolor': 'red', 'markeredgecolor': 'black', 'markersize': 7},
         ax=ax
     )
