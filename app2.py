@@ -136,9 +136,11 @@ def graf_ic(variavel, base):
     # Criando a tabela
     tabela = desc_ic(variavel, base)
 
-    
     # Reordena a tabela pela ordem das categorias do índice
     tabela = tabela.sort_index()
+
+    # Inverte a ordem das categorias para o gráfico (para o primeiro ficar no topo)
+    tabela = tabela.iloc[::-1]
     
     # Supondo que o índice do DataFrame sejam as categorias
     categorias = tabela.index
