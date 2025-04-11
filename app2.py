@@ -165,48 +165,33 @@ def graf_ic(variavel, base):
 
 
 def boxplot(variavel, base):
+    import matplotlib.colors as mcolors
+
     ordem = ajustar_ordem(variavel)
     base[variavel] = pd.Categorical(base[variavel], categories=ordem, ordered=True)
 
     # cria uma paleta com o mesmo número de cores das categorias
     paleta = sns.color_palette(n_colors=len(ordem))
-
-    # mapeia as cores para cada categoria da variável
     cores_dict = dict(zip(ordem, paleta))
-    
+
     # Criando a figura
     fig, ax = plt.subplots(figsize=(10, 6))
-    
-    # Criando o boxplot base sem preenchimento nas caixas
-    sns.boxplot(
-        x=variavel,
-        y='Salario',
-        data=base,
-        showmeans=True,
-        palette=["none"] * len(ordem),  # sem preenchimento
+
+    # Criando o boxplot
+    box = sns.boxplot(
+        x=variavel, y='Salario', data=base, showmeans=True, palette=cores_dict,
         meanprops={'marker': 'D', 'markerfacecolor': 'red', 'markeredgecolor': 'black', 'markersize': 7},
-        boxprops={'facecolor': 'none', 'linewidth': 2},
-        whiskerprops={'linewidth': 1},
-        capprops={'linewidth': 1},
-        flierprops={'marker': 'o', 'markersize': 4, 'alpha': 0.3},
-        medianprops={'color': 'black'},
         ax=ax
     )
 
-    # Preenchendo as caixas manualmente com transparência
-    for i, cat in enumerate(ordem):
-        dados = base[base[variavel] == cat]['Salario']
-        q1 = dados.quantile(0.25)
-        q3 = dados.quantile(0.75)
-        ax.add_patch(plt.Rectangle(
-            (i - 0.2, q1),         # canto inferior esquerdo
-            0.4,                   # largura da caixa
-            q3 - q1,               # altura da caixa
-            facecolor=cores_dict[cat],
-            edgecolor=cores_dict[cat],
-            alpha=0.25,
-            linewidth=2
-        ))
+    # Ajeitando as caixas para contorno escuro e interior transparente
+    for patch, categoria in zip(ax.artists, ordem):
+        facecolor = mcolors.to_rgba(cores_dict[categoria], alpha=0.25)  # cor clara dentro
+        edgecolor = cores_dict[categoria]  # contorno mais forte
+
+        patch.set_facecolor(facecolor)
+        patch.set_edgecolor(edgecolor)
+        patch.set_linewidth(2)
 
     # Ajustes visuais
     ax.set_xlabel(variavel, fontsize=10)
@@ -214,9 +199,9 @@ def boxplot(variavel, base):
     ax.set_title(f'Salário por {variavel}', fontsize=12)
     ax.tick_params(axis='x', labelsize=8)
     ax.tick_params(axis='y', labelsize=8)
-    ax.grid(True)
 
     return fig
+
 
 
 def hipoteses(variavel, categoria1, categoria2, base):
