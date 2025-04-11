@@ -29,7 +29,27 @@ variavel = st.selectbox('Escolha a variável para análise', ['Cargo',  'Carreir
 
 # definindo as funções que serão usadas
 
+def ajustar_ordem(variavel):
+    # Função para definir a ordem de exibição das categorias da variável
+    if variavel == 'Cargo':
+        ordem = ['Engenheiro de dados', 'Analista de Dados', 'Cientista de dados', 'Analista de BI', 'Outra opção']
+    elif variavel == 'Experiencia':
+        ordem = ['Até 2 anos', 'de 3 a 4 anos', 'de 4 a 6 anos', 'de 7 a 10 anos',
+              'Mais de 10 anos']
+    elif variavel == 'Genero':
+        ordem = ['Masculino', 'Feminino', 'Outro']
+    elif variavel == 'Raça':
+        ordem = ['Parda', 'Branca', 'Preta', 'Amarela', 'Indígena', 'Outra', 'Não informado']
+    elif variavel == 'Carreira':
+        ordem = ['Júnior', 'Pleno', 'Sênior']
+  return ordem
+
+
 def desc_ic(variavel, base):
+
+  # Ajustando a ordem das categorias
+  ordem = ajustar_ordem(variavel)
+  base[variavel] = pd.Categorical(base[variavel], categories = ordem, ordered=True)
 
   # Agrupar a base pela variável e calcular as estatísticas
   tabela = base.groupby(variavel)['Salario'].agg(['count', 'mean', 'std'])
@@ -64,27 +84,34 @@ def desc_ic(variavel, base):
 
   return tabela.round(2)
 
-def ajustar_caminho_imagem(texto_markdown):
-    # Expressão regular pra encontrar imagens no markdown
-    padrao = r"!\[.*?\]\((.*?)\)"
+# def ajustar_caminho_imagem(texto_markdown):
+#     # Expressão regular pra encontrar imagens no markdown
+#     padrao = r"!\[.*?\]\((.*?)\)"
     
-    # Função auxiliar pra converter imagem pra base64
-    def converter_para_base64(match):
-        caminho_imagem = match.group(1)
-        try:
-            with open(caminho_imagem, "rb") as img_file:
-                encoded_string = base64.b64encode(img_file.read()).decode("utf-8")
-            return f'![Imagem](data:image/png;base64,{encoded_string})'
-        except Exception as e:
-            return f"Erro ao carregar imagem: {str(e)}"
+#     # Função auxiliar pra converter imagem pra base64
+#     def converter_para_base64(match):
+#         caminho_imagem = match.group(1)
+#         try:
+#             with open(caminho_imagem, "rb") as img_file:
+#                 encoded_string = base64.b64encode(img_file.read()).decode("utf-8")
+#             return f'![Imagem](data:image/png;base64,{encoded_string})'
+#         except Exception as e:
+#             return f"Erro ao carregar imagem: {str(e)}"
 
-    # Substitui os caminhos de imagem pelo formato base64
-    texto_corrigido = re.sub(padrao, converter_para_base64, texto_markdown)
-    return texto_corrigido
+#     # Substitui os caminhos de imagem pelo formato base64
+#     texto_corrigido = re.sub(padrao, converter_para_base64, texto_markdown)
+#     return texto_corrigido
 
  
 
 def grafico_density(variavel, base):
+
+    # Ajustando a ordem das categorias da variavel
+
+    ordem = ajustar_ordem(variavel)
+
+    base[variavel] = pd.Categorical(base[variavel], categories = ordem, ordered = True)
+
     # Criando a figura
     fig, ax = plt.subplots(figsize=(8, 6))
     
@@ -132,6 +159,11 @@ def graf_ic(variavel, base):
 
 
 def boxplot(variavel, base):
+
+    ordem = ajustar_ordem(variavel)
+
+    base[variavel] = pd.Categorical(base[variavel], categories = ordem, ordered = True)
+
     # Criando a figura
     fig, ax = plt.subplots(figsize=(10, 6))
     
@@ -299,7 +331,7 @@ st.divider()
 col1, col2 = st.columns(2, border = False)
 
 with col1:
-    st.subheader('🌊 Distribuições estimadas das observações') 
+    st.subheader('🌊 Distribuições estimadas dos grupos') 
     fig = grafico_density(variavel, base)
     st.pyplot(fig)
 
@@ -323,5 +355,3 @@ with c2:
     #gera_curva_testes(variavel, base)
 with c3:
       st.markdown(texto_col2, unsafe_allow_html = True)
-
- 
