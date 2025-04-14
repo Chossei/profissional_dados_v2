@@ -110,9 +110,6 @@ def grafico_density(variavel, base):
     ordem = ajustar_ordem(variavel)
     base[variavel] = pd.Categorical(base[variavel], categories=ordem, ordered=True)
 
-    # Filtrando salários negativos ou nulos
-    base_filtrada = base[base["Salario"] >= 0].copy()
-
     # Criando a figura
     fig, ax = plt.subplots(figsize=(8, 6))
     
