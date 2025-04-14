@@ -107,16 +107,17 @@ def desc_ic(variavel, base):
 def grafico_density(variavel, base):
 
     # Ajustando a ordem das categorias da variavel
-
     ordem = ajustar_ordem(variavel)
+    base[variavel] = pd.Categorical(base[variavel], categories=ordem, ordered=True)
 
-    base[variavel] = pd.Categorical(base[variavel], categories = ordem, ordered = True)
+    # Filtrando salários negativos ou nulos
+    base_filtrada = base[base["Salario"] >= 0].copy()
 
     # Criando a figura
     fig, ax = plt.subplots(figsize=(8, 6))
     
     # Plotando a curva de densidade de Kernel para cada categoria
-    sns.kdeplot(data=base, x='Salario', hue=variavel, fill=True, common_norm=False, alpha=0.25, ax=ax)
+    sns.kdeplot(data=base_filtrada, x='Salario', hue=variavel, fill=True, common_norm=False, alpha=0.25, ax=ax)
 
     # Configurações do gráfico
     ax.set_title('Curvas de Densidade de Kernel por Categoria')
