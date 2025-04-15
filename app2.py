@@ -338,7 +338,6 @@ texto_col4 = f'{boxplot(variavel, base)}'
 # col4.subheader('📊 Visualização dos boxplots')
 # col4.markdown(texto_col4)
     
-st.divider()
 
 col1, col2 = st.columns([3,2], border = False, gap = 'medium')
 with col1:
