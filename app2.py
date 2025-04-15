@@ -37,7 +37,7 @@ with filtro1:
                            max_value = int(np.max(base['Idade'])),
                            value = [int(np.min(base['Idade'])), int(np.max(base['Idade']))],
                            disabled = not idad_valor)
-    if idad_valor == True:
+    if idad_valor:
         base = base[(base['Idade'] >= idade_min) & (base['Idade'] <= idade_max)]
 
 # Filtro por região -----------------------------------------------------------------------------------------------
