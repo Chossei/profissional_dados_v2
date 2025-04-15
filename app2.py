@@ -21,8 +21,15 @@ st.set_page_config(
 # Carregando a base de dados
 base = pd.read_csv('base2.csv', sep = ',', encoding = 'utf-8')
 
-idad_valor = st.checkbox('Deseja filtrar por idade?')
+# Título e seleção das variáveis a serem analisadas
+st.title('Análise de dados do profissional da área de dados no Brasil em 2023')
 
+variavel = st.selectbox('Escolha a variável para análise', ['Cargo',  'Carreira', 'Genero', 'Raça', 'Experiencia'])
+
+# Filtro para idade
+st.divider()
+
+idad_valor = st.checkbox('Deseja filtrar por idade?')
 
 idade_min, idade_max = st.slider(label = 'Selecione a idade:',
                            min_value = int(np.min(base['Idade'])),
@@ -33,13 +40,7 @@ idade_min, idade_max = st.slider(label = 'Selecione a idade:',
 if idad_valor == True:
     base = base[(base['Idade'] >= idade_min) & (base['Idade'] <= idade_max)]
 
-
 st.divider()
-
-# Título e seleção das variáveis a serem analisadas
-st.title('Análise de dados do profissional da área de dados no Brasil em 2023')
-
-variavel = st.selectbox('Escolha a variável para análise', ['Cargo',  'Carreira', 'Genero', 'Raça', 'Experiencia'])
 
 # definindo as funções que serão usadas
 
