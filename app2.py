@@ -29,7 +29,7 @@ variavel = st.selectbox('Escolha a variável para análise', ['Cargo',  'Carreir
 # Filtro para idade -----------------------------------------------------------------------------------------------
 st.divider()
 
-filtro1, filtro2 = st.columns(2)
+filtro1, filtro2 = st.columns(2, border = True)
 
 with filtro1: 
     idad_valor = st.checkbox('Deseja filtrar por idade?')
@@ -45,7 +45,7 @@ with filtro1:
 with filtro2:
     regiao_valor = st.checkbox('Deseja filtrar por Estado?')
     estados = st.multiselect(label = 'Selecione os Estados de interesse:', options = base['Estados'].unique(),
-                  disabled = not regiao_valor)
+                  disabled = not regiao_valor, placeholder = 'UF...')
     if regiao_valor == True:
         base = base[base['Estados'].isin(estados)] # o isin retorna True para cada observação com o elemento da lista estados
 
