@@ -22,10 +22,12 @@ st.set_page_config(
 base = pd.read_csv('base2.csv', sep = ',', encoding = 'utf-8')
 
 idad_valor = st.checkbox('Deseja filtrar por idade?')
+minimo_idade = int(np.min(base['Idade']))
+maximo_idade = int(np.max(base['Idade']))
 
 idade_min, idade_max = st.slider(label = 'Selecione a idade:',
-                           min_value = int(np.min(base['Idade'])),
-                           max_value = int(np.max(base['Idade'])),
+                           min_value = minimo_idade,
+                           max_value = maximo_idade,
                            disabled = not idad_valor)
 
 if idad_valor == True:
