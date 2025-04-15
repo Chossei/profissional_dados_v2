@@ -27,7 +27,6 @@ st.title('Análise de dados do profissional da área de dados no Brasil em 2023'
 variavel = st.selectbox('Escolha a variável para análise', ['Cargo',  'Carreira', 'Genero', 'Raça', 'Experiencia'])
 
 # Filtro para idade -----------------------------------------------------------------------------------------------
-st.divider()
 
 filtro1, filtro2 = st.columns(2, border = True)
 
