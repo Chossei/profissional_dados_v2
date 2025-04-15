@@ -24,8 +24,8 @@ base = pd.read_csv('base2.csv', sep = ',', encoding = 'utf-8')
 idad_valor = st.checkbox('Deseja filtrar por idade?')
 
 idade_min, idade_max = st.slider(label = 'Selecione a idade:',
-                           min_value = np.min(base['Idade']),
-                           max_value = np.max(base['Idade']),
+                           min_value = int(np.min(base['Idade'])),
+                           max_value = int(np.max(base['Idade'])),
                            disabled = not idad_valor)
 
 if idad_valor == True:
