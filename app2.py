@@ -25,7 +25,7 @@ idad_valor = st.checkbox('Deseja filtrar por idade?')
 
 idade_min, idade_max = st.slider(label = 'Selecione a idade:',
                            min_value = np.min(base['Idade']),
-                           max_value = np.max(base['Idade'],
+                           max_value = np.max(base['Idade']),
                            disabled = not idad_valor))
 
 if idad_valor == True:
