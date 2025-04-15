@@ -26,21 +26,30 @@ st.title('Análise de dados do profissional da área de dados no Brasil em 2023'
 
 variavel = st.selectbox('Escolha a variável para análise', ['Cargo',  'Carreira', 'Genero', 'Raça', 'Experiencia'])
 
-# Filtro para idade
+# Filtro para idade -----------------------------------------------------------------------------------------------
 st.divider()
 
-idad_valor = st.checkbox('Deseja filtrar por idade?')
+filtro1, filtro2 = st.columns(2)
 
-idade_min, idade_max = st.slider(label = 'Selecione a idade:',
+with filtro1: 
+    idad_valor = st.checkbox('Deseja filtrar por idade?')
+    idade_min, idade_max = st.slider(label = 'Selecione a idade:',
                            min_value = int(np.min(base['Idade'])),
                            max_value = int(np.max(base['Idade'])),
                            value = [int(np.min(base['Idade'])), int(np.max(base['Idade']))],
                            disabled = not idad_valor)
+    if idad_valor == True:
+        base = base[(base['Idade'] >= idade_min) & (base['Idade'] <= idade_max)]
 
-if idad_valor == True:
-    base = base[(base['Idade'] >= idade_min) & (base['Idade'] <= idade_max)]
+# Filtro por região -----------------------------------------------------------------------------------------------
+with filtro2:
+    regiao_valor = st.checkbox('Deseja filtrar por Estado?')
+    estados = st.multiselect(label = 'Selecione os Estados de interesse:', options = base['Estados'].unique(),
+                  disabled = not regiao_valor)
+    if regiao_valor == True:
+        base = base[base['Estados'].isin(estados)] # o isin retorna True para cada observação com o elemento da lista estados
 
-st.divider()
+
 
 # definindo as funções que serão usadas
 
