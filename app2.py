@@ -43,7 +43,7 @@ with filtro1:
 # Filtro por região -----------------------------------------------------------------------------------------------
 with filtro2:
     regiao_valor = st.checkbox('Deseja filtrar por Estado?')
-    estados = st.multiselect(label = 'Selecione os Estados de interesse:', options = sorted(base['Estados'].unique()),
+    estados = st.multiselect(label = 'Selecione os Estados de interesse:', options = base['Estados'].unique().sort(),
                   disabled = not regiao_valor, placeholder = 'UF...')
     if regiao_valor and estados:
         base = base[base['Estados'].isin(estados)] # o isin retorna True para cada observação com o elemento da lista estados
