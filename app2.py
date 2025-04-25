@@ -62,7 +62,7 @@ with filtro2:
         regioes_valor = st.checkbox('Deseja filtrar por Região?', disabled = estado_valor)
         regioes_ordenadas = ['Norte', 'Nordeste', 'Centro-Oeste', 'Sudeste', 'Sul']
         regioes_final = st.multiselect(label = 'Selecione as regiões de interesse:', options = regioes_ordenadas,
-                        disabeld = not regioes_valor, placeholder = '...'
+                        disabeld = not regioes_valor, placeholder = '...')
 
 
 
