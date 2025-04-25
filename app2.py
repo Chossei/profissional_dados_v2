@@ -44,7 +44,7 @@ with filtro1:
 with filtro2:
     states, regioes = st.columns(2)
     with states:
-        estado_valor = st.checkbox('Deseja filtrar por Estado?')
+        estado_valor = st.checkbox('Deseja filtrar por Estado?', disabled = regioes_valor)
         estados_ordenados = [
         'Acre (AC)', 'Alagoas (AL)', 'Amapá (AP)', 'Amazonas (AM)', 'Bahia (BA)', 
         'Ceará (CE)', 'Distrito Federal (DF)', 'Espírito Santo (ES)', 'Goiás (GO)', 
