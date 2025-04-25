@@ -42,20 +42,27 @@ with filtro1:
 
 # Filtro por região -----------------------------------------------------------------------------------------------
 with filtro2:
-    regiao_valor = st.checkbox('Deseja filtrar por Estado?')
-    estados_ordenados = [
-    'Acre (AC)', 'Alagoas (AL)', 'Amapá (AP)', 'Amazonas (AM)', 'Bahia (BA)', 
-    'Ceará (CE)', 'Distrito Federal (DF)', 'Espírito Santo (ES)', 'Goiás (GO)', 
-    'Maranhão (MA)', 'Mato Grosso (MT)', 'Mato Grosso do Sul (MS)', 'Minas Gerais (MG)', 
-    'Pará (PA)', 'Paraíba (PB)', 'Paraná (PR)', 'Pernambuco (PE)', 'Piauí (PI)', 
-    'Rio de Janeiro (RJ)', 'Rio Grande do Norte (RN)', 'Rio Grande do Sul (RS)', 
-    'Rondônia (RO)', 'Roraima (RR)', 'Santa Catarina (SC)', 'São Paulo (SP)', 'Sergipe (SE)', 
-    'Tocantins (TO)'
-    ]
-    estados = st.multiselect(label = 'Selecione os Estados de interesse:', options = estados_ordenados,
-                  disabled = not regiao_valor, placeholder = 'UF...')
-    if regiao_valor and estados:
-        base = base[base['Estados'].isin(estados)] # o isin retorna True para cada observação com o elemento da lista estados
+    states, regioes = st.columns(2):
+    with states:
+        estado_valor = st.checkbox('Deseja filtrar por Estado?')
+        estados_ordenados = [
+        'Acre (AC)', 'Alagoas (AL)', 'Amapá (AP)', 'Amazonas (AM)', 'Bahia (BA)', 
+        'Ceará (CE)', 'Distrito Federal (DF)', 'Espírito Santo (ES)', 'Goiás (GO)', 
+        'Maranhão (MA)', 'Mato Grosso (MT)', 'Mato Grosso do Sul (MS)', 'Minas Gerais (MG)', 
+        'Pará (PA)', 'Paraíba (PB)', 'Paraná (PR)', 'Pernambuco (PE)', 'Piauí (PI)', 
+        'Rio de Janeiro (RJ)', 'Rio Grande do Norte (RN)', 'Rio Grande do Sul (RS)', 
+        'Rondônia (RO)', 'Roraima (RR)', 'Santa Catarina (SC)', 'São Paulo (SP)', 'Sergipe (SE)', 
+        'Tocantins (TO)'
+        ]
+        estados = st.multiselect(label = 'Selecione os Estados de interesse:', options = estados_ordenados,
+                      disabled = not estado_valor, placeholder = 'UF...')
+        if regiao_valor and estados:
+            base = base[base['Estados'].isin(estados)] # o isin retorna True para cada observação com o elemento da lista estados
+    with regioes:
+        regioes_valor = st.checkbox('Deseja filtrar por Região?', disabled = estado_valor)
+        regioes_ordenadas = ['Norte', 'Nordeste', 'Centro-Oeste', 'Sudeste', 'Sul']
+        regioes_final = st.multiselect(label = 'Selecione as regiões de interesse:', options = regioes_ordenadas,
+                        disabeld = not regioes_valor, placeholder = '...'
 
 
 
