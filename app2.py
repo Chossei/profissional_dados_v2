@@ -42,7 +42,7 @@ with filtro1:
 
 # Filtro por região -----------------------------------------------------------------------------------------------
 with filtro2:
-    states, regioes = st.columns(2):
+    states, regioes = st.columns(2)
     with states:
         estado_valor = st.checkbox('Deseja filtrar por Estado?')
         estados_ordenados = [
