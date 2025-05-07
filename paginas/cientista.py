@@ -17,11 +17,14 @@ def plotar_barras(variaveis, base):
     # gera a figura e os eixos
     fig, ax = plt.subplots()
     totais.plot(kind = 'barh', color = 'steelblue', ax=ax)
-
+    
     # adiciona os percentuais dentro das barras
     for i, v in enumerate(totais):
         percentual = v / total_geral * 100
-        ax.text(v - 60, i, f'{percentual:.2f}%', color='white', fontweight='bold', va='center', fontsize = 8)
+        if percentual >= 5:
+            ax.text(v - 60, i, f'{percentual:.2f}%', color='white', fontweight='bold', va='center', fontsize = 8)
+        else:
+            continue
 
     # para consertar o problema de porcentagens fora das barras
     ax.set_xlim(0, totais.max() * 1.15)
