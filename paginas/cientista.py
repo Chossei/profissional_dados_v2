@@ -26,7 +26,7 @@ def plotar_barras(variaveis, base):
         if percentual >= 3.5:
             ax.text(v - posicao_texto, i, f'{percentual:.2f}%', color='black', fontweight='bold', va='center', fontsize = 8)
         else:
-            ax.text(v, i, f'{percentual:.2f}', color = 'black', fontweight='bold', va='center', fontsize=8)
+            ax.text(v, i, f'{percentual:.2f}%', color = 'black', fontweight='bold', va='center', fontsize=8)
 
     # para consertar o problema de porcentagens fora das barras
     ax.set_xlim(0, totais.max() * 1.15)
