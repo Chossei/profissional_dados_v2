@@ -18,16 +18,19 @@ def plotar_barras(variaveis, base):
     fig, ax = plt.subplots()
     totais.plot(kind = 'barh', color = 'steelblue', ax=ax)
     
-    # adiciona os percentuais dentro das barras
+    x_max = ax.get_xlim()[1]  # pega o valor máximo do eixo x
+
     for i, v in enumerate(totais):
         percentual = v / total_geral * 100
-        if v >= 70:
-            x_text = v - 10  # texto dentro da barra, um pouco antes da borda
-            color = 'black'
-        else:
-            x_text = v + 5   # texto fora da barra
-            color = 'black'
-        
+        if percentual >= 5:
+            deslocamento = 0.02 * x_max  # 2% do tamanho do eixo x
+            if v >= deslocamento * 4:  # se a barra for "grande o suficiente"
+                x_text = v - deslocamento
+                color = 'white'
+            else:
+                x_text = v + deslocamento
+                color = 'black'
+
         ax.text(x_text, i, f'{percentual:.2f}%', color=color,
                 fontweight='bold', va='center', fontsize=8)
 
