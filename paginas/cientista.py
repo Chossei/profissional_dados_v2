@@ -22,9 +22,9 @@ def plotar_barras(variaveis, base):
     for i, v in enumerate(totais):
         percentual = v / total_geral * 100
         if percentual >= 5:
-            ax.text(v, i, f'{percentual:.2f}%', color='black', fontweight='bold', va='center', fontsize = 8)
+            ax.text(v - 70, i, f'{percentual:.2f}%', color='black', fontweight='bold', va='center', fontsize = 8)
         else:
-            continue
+            ax.text(v, i, f'{percentual:.2f}%', color='black', fontweight='bold', va='center', fontsize = 8)
 
     # para consertar o problema de porcentagens fora das barras
     ax.set_xlim(0, totais.max() * 1.15)
