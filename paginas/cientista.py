@@ -22,7 +22,9 @@ def plotar_barras(variaveis, base):
     for i, v in enumerate(totais):
         percentual = v / total_geral * 100
         ax.text(v - 60, i, f'{percentual:.2f}%', color='white', fontweight='bold', va='center', fontsize = 8)
-    
+
+    # para consertar o problema de porcentagens fora das barras
+    ax.set_xlim(0, totais.max() * 1.15
     plt.tight_layout()
     return fig
 
