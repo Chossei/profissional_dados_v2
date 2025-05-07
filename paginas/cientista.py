@@ -19,7 +19,7 @@ def plotar_barras(variaveis, base):
     totais.plot(kind = 'barh', color = 'steelblue', ax=ax)
 
     x_max = ax.get_xlim()[1]
-    posicao_texto = 0.13 * x_max
+    posicao_texto = 0.15 * x_max
     
     for i, v in enumerate(totais):
         percentual = v / total_geral * 100
