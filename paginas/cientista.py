@@ -23,7 +23,7 @@ def plotar_barras(variaveis, base):
         percentual = v / total_geral * 100
         if v >= 70:
             x_text = v - 10  # texto dentro da barra, um pouco antes da borda
-            color = 'white'
+            color = 'black'
         else:
             x_text = v + 5   # texto fora da barra
             color = 'black'
