@@ -45,7 +45,7 @@ variaveis_4 = base2.columns[:].to_list()
 
 st.title('Cientista de dados 👨‍💻')
 
-graf1, graf2 = st.columns(2)
+graf1, graf2 = st.columns(2, border = True)
 
 with graf1:
   st.subheader('Rotina de trabalho')
@@ -59,7 +59,7 @@ with graf2:
 
 st.divider()
 
-graf3, graf4 = st.columns(2)
+graf3, graf4 = st.columns(2, border = True)
 
 with graf3:
   st.subheader('Tecnologias mais usadas no dia a dia')
