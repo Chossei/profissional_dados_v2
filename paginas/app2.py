@@ -19,7 +19,7 @@ st.set_page_config(
 )
 
 # Carregando a base de dados
-base = pd.read_csv('base2.csv', sep = ',', encoding = 'utf-8')
+base = pd.read_csv('profissional_dados_v2/base2.csv', sep = ',', encoding = 'utf-8')
 
 # Título e seleção das variáveis a serem analisadas
 st.title('Análise de dados do profissional da área de dados no Brasil em 2023')
