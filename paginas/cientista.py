@@ -21,7 +21,7 @@ def plotar_barras(variaveis, base):
     # adiciona os percentuais dentro das barras
     for i, v in enumerate(totais):
         percentual = v / total_geral * 100
-        ax.text(v - 70, i, f'{percentual:.2f}%', color='white', fontweight='bold', va='center')
+        ax.text(v - 70, i, f'{percentual:.2f}%', color='white', fontweight='bold', va='center', fontsize = 8)
     
     plt.tight_layout()
     return fig
