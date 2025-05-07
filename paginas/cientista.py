@@ -18,11 +18,11 @@ def plotar_barras(variaveis, base):
     fig, ax = plt.subplots()
     totais.plot(kind = 'barh', color = 'steelblue', ax=ax)
 
-    x_max = ax.get_xlim()[1] 
+    x_max = ax.get_xlim()[1]
+    posicao_texto = 0.13 * x_max
     
     for i, v in enumerate(totais):
         percentual = v / total_geral * 100
-        posicao_texto = 0.13 * x_max
         if percentual >= 3.5:
             ax.text(v - posicao_texto, i, f'{percentual:.2f}%', color='black', fontweight='bold', va='center', fontsize = 8)
         else:
