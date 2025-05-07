@@ -48,12 +48,12 @@ st.title('Cientista de dados 👨‍💻')
 graf1, graf2 = st.columns(2, border = True)
 
 with graf1:
-  st.subsubheader('Rotina de trabalho')
+  st.markdown('### Rotina de trabalho')
   fig1 = plotar_barras(variaveis_1, base1)
   st.pyplot(fig1)
 
 with graf2:
-  st.subsubheader('Técnicas e métodos usados no trabalho')
+  st.markdown('### Técnicas e métodos usados no trabalho')
   fig2 = plotar_barras(variaveis_2, base1)
   st.pyplot(fig2)
 
@@ -62,11 +62,11 @@ st.divider()
 graf3, graf4 = st.columns(2, border = True)
 
 with graf3:
-  st.subsubheader('Tecnologias mais usadas no dia a dia')
+  st.markdown('### Tecnologias mais usadas no dia a dia')
   fig3 = plotar_barras(variaveis_3, base1)
   st.pyplot(fig3)
 
 with graf4:
-  st.subsubheader('Técnicas e métodos que ocupam mais tempo no trabalho')
+  st.markdown('### Técnicas e métodos que ocupam mais tempo no trabalho')
   fig4 = plotar_barras(variaveis_4, base2)
   st.pyplot(fig4)
