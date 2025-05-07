@@ -57,8 +57,6 @@ with graf2:
   fig2 = plotar_barras(variaveis_2, base1)
   st.pyplot(fig2)
 
-st.divider()
-
 graf3, graf4 = st.columns(2, border = True)
 
 with graf3:
