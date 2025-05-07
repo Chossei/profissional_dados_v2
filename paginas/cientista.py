@@ -29,16 +29,16 @@ def plotar_barras(variaveis, base):
 # Definindo as colunas para cada tipo de pergunta
 
 # Quais das opções abaixo fazem parte da sua rotina no trabalho atual com ciência de dados?
-variaveis_1 = base1.columns[0:11].to_list()
+variaveis_1 = base1.columns[1:13].to_list()
 
 # Quais as técnicas e métodos listados abaixo você costuma utilizar no trabalho?
-variaveis_2 = base1.columns[12:25].to_list()
+variaveis_2 = base1.columns[13:27].to_list()
 
 # Quais dessas tecnologias fazem parte do seu dia a dia como cientista de dados?
-variaveis_3 = base1.columns[26:].to_list()
+variaveis_3 = base1.columns[27:].to_list()
 
 # Em qual das opções abaixo você gasta a maior parte do seu tempo no trabalho?
-variaveis_4 = base2.columns[:].to_list()
+variaveis_4 = base2.columns[1:].to_list()
 
 
 # Página
