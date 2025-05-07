@@ -31,8 +31,8 @@ def plotar_barras(variaveis, base):
                 x_text = v + deslocamento
                 color = 'black'
 
-        ax.text(x_text, i, f'{percentual:.2f}%', color=color,
-                fontweight='bold', va='center', fontsize=8)
+            ax.text(x_text, i, f'{percentual:.2f}%', color=color,
+                    fontweight='bold', va='center', fontsize=8)
 
     # para consertar o problema de porcentagens fora das barras
     ax.set_xlim(0, totais.max() * 1.15)
