@@ -229,7 +229,9 @@ Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalh
 - **Streamlit**: Pela excelente ferramenta de desenvolvimento
 - **Comunidade Python**: Pelas bibliotecas open-source de qualidade
 - **Usuários**: Pelo feedback e sugestões de melhoria
+- **Professor Dr. Ricardo Rocha**: Pela orientação em toda a elaboração do projeto
 
 ---
+
 
 **⭐ Se este projeto foi útil para você, considere dar uma estrela no repositório!**
