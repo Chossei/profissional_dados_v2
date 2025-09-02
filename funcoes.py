@@ -59,6 +59,9 @@ def desc_ic(variavel, base):
   icinf = []
   icsup = []
 
+  # Lista para armazenar os coeficientes de variação
+  cv = []
+
   # Iterando sobre as linhas de tabela usando o índice real (não o índice numérico)
   for idx in tabela.index:
         media = tabela.loc[idx, 'mean']
@@ -69,18 +72,25 @@ def desc_ic(variavel, base):
         icinf.append(media - 1.96 * std / np.sqrt(n))
         icsup.append(media + 1.96 * std / np.sqrt(n))
 
+        # Cálculo do CV
+        cv.append(np.round(cv/media, 2))
+
+
+
   # Adiciona as colunas de intervalo de confiança
   tabela['ic inf'] = icinf
   tabela['ic sup'] = icsup
+  tabela['cv'] = cv
   tabela.rename(columns = {
       'count': 'Frequência',
       'mean': 'Média',
-      'std': 'Desvio padrão',
+      'std': 'Desvio Padrão',
+      'cv': 'Coef. de Variação'
       'ic inf': 'I.C Inferior',
       'ic sup': 'I.C Superior'
   })
 
-  tabela.columns = ['Tamanho', 'Média', 'Desvio padrão', 'I.C Inferior', 'I.C Superior']
+  tabela.columns = ['Tamanho', 'Média', 'Desvio padrão', 'Coef. de Variação', 'I.C Inferior', 'I.C Superior']
 
 
   return tabela.round(2)
