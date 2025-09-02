@@ -251,7 +251,7 @@ há evidências estatísticas suficientes para <strong>rejeitar H₀</strong> e 
 <strong>Contexto da Análise:</strong> {texto_final}<br><br>
 <strong>H₀:</strong> μ<sub>{categoria1}</sub> = μ<sub>{categoria2}</sub><br>
 <strong>H₁:</strong> μ<sub>{categoria1}</sub> ≠ μ<sub>{categoria2}</sub><br><br>
-Como o p-valor é <i>{p_value:.4f}</i>, não há evidências estatísticas suficientes para <strong>rejeitar H₀</strong> e concluir que existe uma diferença significativa entre as médias salariais.
+Como o p-valor é <i>{p_value:.4f}</i>, maior que o nível de significância de 5%, não há evidências estatísticas suficientes para <strong>rejeitar H₀</strong> e concluir que existe uma diferença significativa entre as médias salariais.
 </div>'''
 
         return texto_final2
