@@ -73,7 +73,7 @@ def desc_ic(variavel, base):
         icsup.append(media + 1.96 * std / np.sqrt(n))
 
         # Cálculo do CV
-        cv.append(100 * np.round(std/media, 2))
+        cv.append(100 * np.round(std/media, 4))
 
 
 
@@ -86,12 +86,12 @@ def desc_ic(variavel, base):
       'count': 'Frequência',
       'mean': 'Média',
       'std': 'Desvio Padrão',
-      'cv': 'Coef. de Variação',
+      'cv': 'Coef. de Variação (%)',
       'ic inf': 'I.C Inferior',
       'ic sup': 'I.C Superior'
   })
 
-  tabela.columns = ['Tamanho', 'Média', 'Desvio padrão', 'Coef. de Variação', 'I.C Inferior', 'I.C Superior']
+  tabela.columns = ['Tamanho', 'Média', 'Desvio padrão', 'Coef. de Variação (%)', 'I.C Inferior', 'I.C Superior']
 
 
   return tabela.round(2)
