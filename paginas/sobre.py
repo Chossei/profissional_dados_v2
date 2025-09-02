@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.markdown("graph TD
+st.markdown("""graph TD
     A(Início: Comparar Médias Salariais de Grupo 1 e Grupo 2) --> B{Tamanho da Amostra < 30?}
 
     B -- "Sim (Amostra Pequena)" --> C{Teste de Normalidade (Shapiro-Wilk)}
@@ -24,5 +24,4 @@ st.markdown("graph TD
     K --> L{p-valor < 0.05?}
     L -- "Sim" --> M(Conclusão: Rejeitar H₀. A diferença entre as médias é estatisticamente significativa.)
     L -- "Não" --> N(Conclusão: Não Rejeitar H₀. A diferença entre as médias NÃO é estatisticamente significativa.)
-
-")
+""")
