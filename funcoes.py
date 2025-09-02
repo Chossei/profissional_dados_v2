@@ -73,7 +73,7 @@ def desc_ic(variavel, base):
         icsup.append(media + 1.96 * std / np.sqrt(n))
 
         # Cálculo do CV
-        cv.append(np.round(cv/media, 2))
+        cv.append(np.round(std/media, 2))
 
 
 
