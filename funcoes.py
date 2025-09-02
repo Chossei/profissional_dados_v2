@@ -85,7 +85,7 @@ def desc_ic(variavel, base):
       'count': 'Frequência',
       'mean': 'Média',
       'std': 'Desvio Padrão',
-      'cv': 'Coef. de Variação'
+      'cv': 'Coef. de Variação',
       'ic inf': 'I.C Inferior',
       'ic sup': 'I.C Superior'
   })
