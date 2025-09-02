@@ -110,4 +110,4 @@ st.warning("Alguns *outliers*, especialmente os mais altos, podem ser um artefat
 
 st.markdown("---")
 
-st.image('teste.png', width = 150)
+st.image('teste.png', width = 500)
