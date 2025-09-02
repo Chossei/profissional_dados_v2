@@ -245,8 +245,7 @@ Como o p-valor é <i>&lt; 0.0001</i>, <strong>rejeitamos H₀</strong> e afirmam
 Como o p-valor é <i>{p_value:.4f}</i>, <strong>menor que o nível de significância 0.05</strong>, 
 há evidências estatísticas suficientes para <strong>rejeitar H₀</strong> e afirmar que as médias salariais são diferentes.
 </div>
-
-''' 
+'''
         else: # Exemplo simplificado
             texto_final2 = f'''<div style="padding: 1.5rem; background-color: #f9f9f9; border-radius: 10px; border: 1px solid #ddd; font-size: 16px;">
 <strong>Contexto da Análise:</strong> {texto_final}<br><br>
