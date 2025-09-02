@@ -201,7 +201,7 @@ def hipoteses(variavel, categoria1, categoria2, base):
 </div>'''
         
         # Define o limite para considerar uma amostra "grande"
-        LIMITE_AMOSTRA_GRANDE = 50 
+        LIMITE_AMOSTRA_GRANDE = 30 
         
         # 1. Lógica condicional baseada no tamanho da amostra
         # Se a amostra for pequena, verificamos a normalidade. Se for grande, confiamos no TLC.
@@ -251,7 +251,7 @@ há evidências estatísticas suficientes para <strong>rejeitar H₀</strong> e 
 <strong>Contexto da Análise:</strong> {texto_final}<br><br>
 <strong>H₀:</strong> μ<sub>{categoria1}</sub> = μ<sub>{categoria2}</sub><br>
 <strong>H₁:</strong> μ<sub>{categoria1}</sub> ≠ μ<sub>{categoria2}</sub><br><br>
-Como o p-valor é <i>{p_value:.4f}</i>, <strong>não rejeitamos H₀</strong> e afirmamos que as médias salariais são iguais.
+Como o p-valor é <i>{p_value:.4f}</i>, não há evidências estatísticas suficientes para <strong>rejeitar H₀</strong> e concluir que existe uma diferença significativa entre as médias salariais.
 </div>'''
 
         return texto_final2
