@@ -113,4 +113,4 @@ st.markdown("---")
 _, centro, _ = st.columns([1, 3, 1])
 
 with centro:
-    st.image('teste.png', width = 500)
+    st.image('teste.png', width = "stretch")
