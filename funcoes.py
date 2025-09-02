@@ -222,7 +222,7 @@ def hipoteses(variavel, categoria1, categoria2, base):
             texto_final = 'Amostras grandes detectadas. O Teste T é robusto devido ao Teorema do Limite Central, mesmo com pequenos desvios da normalidade.'
         
         # 2. Teste de Levene e Teste T (procedimento agora é o mesmo para ambos os casos)
-        teste_levene = scipy.stats.bartlett(grupo1, grupo2)[1]
+        teste_levene = scipy.stats.levene(grupo1, grupo2)[1]
 
         if teste_levene > 0.05:
             p_value = scipy.stats.ttest_ind(grupo1, grupo2, equal_var=True)[1]
