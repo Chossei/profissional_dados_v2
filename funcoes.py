@@ -73,14 +73,15 @@ def desc_ic(variavel, base):
         icsup.append(media + 1.96 * std / np.sqrt(n))
 
         # Cálculo do CV
-        cv.append(np.round(std/media, 2))
+        cv.append(100 * np.round(std/media, 2))
 
 
 
-  # Adiciona as colunas de intervalo de confiança
+  # Adiciona as colunas de intervalo de confiança e do cv
+  tabela['cv'] = cv
   tabela['ic inf'] = icinf
   tabela['ic sup'] = icsup
-  tabela['cv'] = cv
+
   tabela.rename(columns = {
       'count': 'Frequência',
       'mean': 'Média',
