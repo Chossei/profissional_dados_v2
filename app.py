@@ -23,6 +23,10 @@ paginas = {
     'Análise de dados': [
         st.Page('paginas/app2.py', title='Dashboard Interativo da Faixa Salarial', default=True),
         st.Page('paginas/cientista.py', title='Sobre o Cientista de Dados', default=False)
+    ],
+    'Saiba Mais':
+    [
+        st.Page('paginas/sobre.py', title = "Sobre a Metodologia", default=False)
     ]
 }
 
