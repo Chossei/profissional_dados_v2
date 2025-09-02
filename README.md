@@ -149,41 +149,29 @@ A aplicação será aberta automaticamente no seu navegador padrão.
 - Comparação entre diferentes perfis profissionais
 - Identificação de fatores que influenciam salários
 
-### Para Recursos Humanos
-- Benchmarking salarial
-- Análise de equidade salarial
-- Planejamento de carreira
-
 ### Para Profissionais da Área
 - Autoavaliação salarial
 - Planejamento de desenvolvimento
-- Negociação salarial
 
 ## 🚧 Limitações e Considerações
 
 ### Dados
 - Coleta realizada em 2023
-- Amostra não probabilística
+- Amostra sem planejamento amostral
 - Possível viés de autodeclaração
 
 ### Análises
 - Testes paramétricos assumem normalidade
 - Transformações podem afetar interpretabilidade
-- Correlação não implica causalidade
 
 ## 🔮 Melhorias Futuras
 
 ### Funcionalidades
-- [ ] Exportação de relatórios em PDF
 - [ ] Análise temporal (comparação entre anos)
 - [ ] Machine Learning para predição salarial
-- [ ] Dashboard mobile otimizado
 
 ### Técnicas
-- [ ] Análise de cluster para segmentação
 - [ ] Testes não paramétricos alternativos
-- [ ] Visualizações 3D interativas
-- [ ] Integração com APIs de dados externos
 
 ## 📚 Referências e Fontes
 
