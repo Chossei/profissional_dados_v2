@@ -231,14 +231,22 @@ def hipoteses(variavel, categoria1, categoria2, base):
             
         # 3. Conclusão (mesma lógica de antes)
         # (O código para gerar o texto final com o p-valor seria o mesmo da sua função original)
-        if p_value < 0.05: # ... etc
+        if p_value < 0.0001: # ... etc
              texto_final2 = f'''<div style="padding: 1.5rem; background-color: #f9f9f9; border-radius: 10px; border: 1px solid #ddd; font-size: 16px;">
 <strong>Contexto da Análise:</strong> {texto_final}<br><br>
 <strong>H₀:</strong> μ<sub>{categoria1}</sub> = μ<sub>{categoria2}</sub><br>
 <strong>H₁:</strong> μ<sub>{categoria1}</sub> ≠ μ<sub>{categoria2}</sub><br><br>
 Como o p-valor é <i>&lt; 0.0001</i>, <strong>rejeitamos H₀</strong> e afirmamos que as médias salariais são diferentes.
 </div>'''
-        # Adicionar os outros elif/else para o p-valor aqui...
+        elif p_value > 0.0001 and p_value < 0.05:
+             texto_final2 = f'''<div style="padding: 1.5rem; background-color: #f9f9f9; border-radius: 10px; border: 1px solid #ddd; font-size: 16px;">
+<strong>H₀:</strong> μ<sub>{categoria1}</sub> = μ<sub>{categoria2}</sub><br>
+<strong>H₁:</strong> μ<sub>{categoria1}</sub> ≠ μ<sub>{categoria2}</sub><br><br>
+Como o p-valor é <i>{p_value:.4f}</i>, <strong>menor que o nível de significância 0.05</strong>, 
+há evidências estatísticas suficientes para <strong>rejeitar H₀</strong> e afirmar que as médias salariais são diferentes.
+</div>
+
+''' 
         else: # Exemplo simplificado
             texto_final2 = f'''<div style="padding: 1.5rem; background-color: #f9f9f9; border-radius: 10px; border: 1px solid #ddd; font-size: 16px;">
 <strong>Contexto da Análise:</strong> {texto_final}<br><br>
