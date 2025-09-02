@@ -221,10 +221,10 @@ def hipoteses(variavel, categoria1, categoria2, base):
             # AMOSTRAS GRANDES: confiamos no Teorema do Limite Central
             texto_final = 'Amostras grandes detectadas. O Teste T é robusto devido ao Teorema do Limite Central, mesmo com pequenos desvios da normalidade.'
         
-        # 2. Teste de Bartlett e Teste T (procedimento agora é o mesmo para ambos os casos)
-        teste_bartlett = scipy.stats.bartlett(grupo1, grupo2)[1]
+        # 2. Teste de Levene e Teste T (procedimento agora é o mesmo para ambos os casos)
+        teste_levene = scipy.stats.bartlett(grupo1, grupo2)[1]
 
-        if teste_bartlett > 0.05:
+        if teste_levene > 0.05:
             p_value = scipy.stats.ttest_ind(grupo1, grupo2, equal_var=True)[1]
         else:
             p_value = scipy.stats.ttest_ind(grupo1, grupo2, equal_var=False)[1]
