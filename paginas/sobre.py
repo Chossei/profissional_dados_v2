@@ -110,4 +110,7 @@ st.warning("Alguns *outliers*, especialmente os mais altos, podem ser um artefat
 
 st.markdown("---")
 
-st.image('teste.png', width = 500)
+_, centro, _ = st.columns([1, 3, 1])
+
+with centro:
+    st.image('teste.png', width = 500)
