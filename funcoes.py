@@ -231,7 +231,7 @@ def hipoteses(variavel, categoria1, categoria2, base):
             
         # 3. Conclusão (mesma lógica de antes)
         # (O código para gerar o texto final com o p-valor seria o mesmo da sua função original)
-        if p_value < 0.0001: # ... etc
+        if p_value < 0.05: # ... etc
              texto_final2 = f'''<div style="padding: 1.5rem; background-color: #f9f9f9; border-radius: 10px; border: 1px solid #ddd; font-size: 16px;">
 <strong>Contexto da Análise:</strong> {texto_final}<br><br>
 <strong>H₀:</strong> μ<sub>{categoria1}</sub> = μ<sub>{categoria2}</sub><br>
